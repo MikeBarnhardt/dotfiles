@@ -37,9 +37,9 @@ end);
 -- Fullscreen window
 hyper:bind({'shift'}, 'space', function()
   move(function(f, sf) return
-    (sf.x + (sf.w * (1 / 6)) + border),
+    (sf.x + border),
     (sf.y + border),
-    ((sf.w * (2 / 3)) - (border + padding)),
+    (sf.w - (border + border)),
     (sf.h - (border + border))
   end)
 end);
@@ -55,7 +55,7 @@ hyper:bind({}, 'left', function()
 end)
 
 -- Left 1/3
-hyper:bind({'ctrl'}, 'left', function()
+hyper:bind({'alt'}, 'left', function()
   move(function(f, sf) return
     (sf.x + border),
     (sf.y + border),
@@ -85,7 +85,7 @@ hyper:bind({}, 'right', function()
 end)
 
 -- Right 1/3
-hyper:bind({'ctrl'}, 'right', function()
+hyper:bind({'alt'}, 'right', function()
   move(function(f, sf) return
     (sf.x + (sf.w * (2 / 3)) + padding),
     (sf.y + border),
