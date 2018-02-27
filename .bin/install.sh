@@ -12,7 +12,7 @@ function dot {
 }
 
 # Remove any conflicting files.
-dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} rm -rf{}
+dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs rm -rf
 
 # Install Homebrew if not already installed
 if ! which brew > /dev/null; then
