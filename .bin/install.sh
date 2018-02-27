@@ -1,14 +1,23 @@
 #!/usr/bin/env bash
 
-# Prompt for admin password
-sudo -v;
+# Install Xcode CLI
+xcode-select --install
 
-brew bundle --file=$HOME/.archive/Brewfile;
+# Clone dotfiles into a bare hidden repository.
+git clone --bare https://github.com/MikeBarnhardt/dotfiles.git $HOME/.dotfiles
+
+# Install Homebrew if not already installed
+if ! which brew > /dev/null; then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi;
+
+# Install using $HOME/.Brewfile
+brew bundle --global;
+
+# Remove installation files afterwards.
 brew cleanup;
 brew cask cleanup;
 
 # Link our iTerm preferences.
 rm -rf ~/Library/Preferences/com.googlecode.iterm2.plist
-ln -s com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
-
-source ~/.bash_profile;
+ln -s $HOME/.archive/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
