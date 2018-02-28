@@ -56,11 +56,11 @@ defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2;
 #######################################################################
 
 # Size:
-defaults write com.apple.dock tilesize -int 32;
+defaults write com.apple.dock tilesize -int 64;
 
 # Magnification:
 defaults write com.apple.dock magnification -bool false;
-defaults write com.apple.dock largesize -int 32;
+defaults write com.apple.dock largesize -int 64;
 
 # Minimize windows using: `Scale effect`
 defaults write com.apple.dock mineffect -string "scale";
@@ -87,6 +87,13 @@ defaults write com.apple.dock autohide-time-modifier -float 0;
 
 # Remove all the default App icons from the Dock
 defaults write com.apple.dock persistent-apps -array;
+
+#######################################################################
+# System Preferences: Mission Control                                 #
+#######################################################################
+
+# Dashboard: `Off`
+defaults write com.apple.dashboard mcx-disabled -bool true
 
 #######################################################################
 # System Preferences: Security & Privacy                              #
@@ -133,13 +140,21 @@ defaults write -g KeyRepeat -int 2
 defaults write -g InitialKeyRepeat -int 15
 
 #######################################################################
+
+# Stop iTunes from responding to the keyboard media keys
+launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+
+#######################################################################
 # System Preferences: Sharing                                         #
 #######################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
 sudo scutil --set ComputerName "シボ";
 sudo scutil --set HostName "シボ";
-sudo scutil --set LocalHostName "シボ";
+
+# Needs to be UTF-8... I think...
+sudo scutil --set LocalHostName "shibo";
+
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "シボ";
 
 #######################################################################
@@ -186,6 +201,20 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool false;
 # New Finder windows show: `$HOME`
 defaults write com.apple.finder NewWindowTarget -string "PfHm";
 
+# Advanced ############################################################
+
+# Show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool false
+
+# Show warning before changing an extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Show warning before emptying the Trash
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+# When performing a search: `Search the Current Folder`
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
 # View Options ########################################################
 
 # Always open in icon view
@@ -205,3 +234,8 @@ defaults write com.apple.finder FXPreferredViewStyle -string "icnv"
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 64" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 64" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 64" ~/Library/Preferences/com.apple.finder.plist
+
+#######################################################################
+
+# Finder: disable window animations and Get Info animations
+defaults write com.apple.finder DisableAllAnimations -bool true
