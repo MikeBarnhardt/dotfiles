@@ -5,43 +5,48 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 fi;
 
 if tput setaf 1 &> /dev/null; then
-    tput sgr0; # reset colors
-    bold=$(tput bold);
-    reset=$(tput sgr0);
-    black=$(tput setaf 0);
-    red=$(tput setaf 1);
-    green=$(tput setaf 2);
-    yellow=$(tput setaf 3);
-    blue=$(tput setaf 4);
-    magenta=$(tput setaf 5);
-    cyan=$(tput setaf 6);
-    white=$(tput setaf 7);
+  # bold=$(tput bold);
+  RESET=$(tput sgr0);
+  BLACK=$(tput setaf 0);
+  RED=$(tput setaf 1);
+  GREEN=$(tput setaf 2);
+  YELLOW=$(tput setaf 3);
+  BLUE=$(tput setaf 4);
+  MAGENTA=$(tput setaf 5);
+  CYAN=$(tput setaf 6);
+  WHITE=$(tput setaf 7);
 else
-    bold='';
-    reset="\e[0m";
-    black="\e[1;30m";
-    red="\e[1;31m";
-    green="\e[1;32m";
-    yellow="\e[1;33m";
-    blue="\e[1;34m";
-    magenta="\e[1;35m";
-    cyan="\e[1;36m";
-    violet="\e[1;35m";
-    white="\e[1;37m";
+  # BOLD='';
+  RESET="\e[0m";
+  BLACK="\e[30m";
+  RED="\e[31m";
+  GREEN='\e[32m';
+  YELLOW="\e[33m";
+  BLUE="\e[34m";
+  MAGENTA="\e[35m";
+  CYAN="\e[36m";
+  VIOLET="\e[35m";
+  WHITE="\e[37m";
 fi;
 
 # Set a color for the git branch name based on its status
 function git_status_color {
   local git_status="$(git status 2> /dev/null)"
 
+  # Check if git directory is dirty
   if [[ ! $git_status =~ "working tree clean" ]]; then
-    echo -e $red
+    echo -e $RED
+
+  # Check if commits need to be pushed
   elif [[ $git_status =~ "Your branch is ahead of" ]]; then
-    echo -e $yellow
+    echo -e $YELLOW
+
+  # Check if git directory is clean
   elif [[ $git_status =~ "nothing to commit" ]]; then
-    echo -e $green
+    echo -e $GREEN
+
   else
-    echo -e $white
+    echo -e $WHITE
   fi
 }
 
@@ -51,12 +56,12 @@ parse_git_branch() {
 }
 
 PS1='\n';
-PS1+='\[$green\][\[$reset\]';
-PS1+='\[$white\]\W\[$reset\]';
+PS1+='\[$GREEN\][\[$RESET\]';
+PS1+='\[$WHITE\]\W\[$RESET\]';
 PS1+='\[$(git_status_color)\]';
 PS1+='$(parse_git_branch)';
-PS1+='\[$reset\]'
-PS1+='\[$green\]]\[$reset\] ';
+PS1+='\[$RESET\]'
+PS1+='\[$GREEN\]]\[$RESET\] ';
 export PS1;
 
 PS2='${yellow}> ${reset}';
