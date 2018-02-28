@@ -14,6 +14,9 @@ function dot {
 # Remove any conflicting files.
 dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs rm -rf
 
+# Don't show untracked files
+dot config status.showUntrackedFiles no
+
 # Install Homebrew if not already installed
 if ! which brew > /dev/null; then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
