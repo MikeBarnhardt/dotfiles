@@ -29,9 +29,8 @@ brew bundle --global;
 brew cleanup;
 brew cask cleanup;
 
-# Link our iTerm preferences.
-rm -rf ~/Library/Preferences/com.googlecode.iterm2.plist
-ln -s $HOME/.archive/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+# Copy our iTerm preferences.
+cp $HOME/.extra/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist 2> /dev/null
 
 # Setup macOS defaults
 sh $HOME/.macos
