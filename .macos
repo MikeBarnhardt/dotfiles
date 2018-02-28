@@ -123,6 +123,16 @@ sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1;
 # Start up automatically after a power failure
 
 #######################################################################
+# System Preferences: Keyboard                                        #
+#######################################################################
+
+#  Key Repeat
+defaults write -g KeyRepeat -int 2
+
+# Delay Until Repeat
+defaults write -g InitialKeyRepeat -int 15
+
+#######################################################################
 # System Preferences: Sharing                                         #
 #######################################################################
 
