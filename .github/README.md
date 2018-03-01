@@ -5,5 +5,5 @@ and checkout files into the `$HOME` directory. Any conflicting files
 are removed in the process.
 
 ```
-curl -Lks https://git.io/vA6kt | /bin/bash
+curl -Lks https://goo.gl/d6Ggbe | /bin/bash
 ```
