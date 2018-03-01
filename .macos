@@ -149,13 +149,10 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/nul
 #######################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "シボ";
-sudo scutil --set HostName "シボ";
-
-# Needs to be UTF-8... I think...
-sudo scutil --set LocalHostName "shibo";
-
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "シボ";
+sudo scutil --set ComputerName "0x536f6d627261";
+sudo scutil --set HostName "0x536f6d627261";
+sudo scutil --set LocalHostName "0x536f6d627261";
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "0x536f6d627261";
 
 #######################################################################
 # System Preferences: Users & Groups                                  #
