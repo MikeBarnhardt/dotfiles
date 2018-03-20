@@ -12,7 +12,6 @@ tap "caskroom/cask"
 cask_args appdir: "~/Applications"
 
 # Install essential apps
-cask "adobe-creative-cloud"
 cask "atom"
 cask "discord"
 cask "firefox"
@@ -21,11 +20,9 @@ cask "google-chrome"
 cask "hammerspoon"
 cask "iterm2"
 cask "karabiner-elements"
-cask "keepingyouawake"
-cask "unity"
 
 # Add fonts to cask
 tap "caskroom/fonts"
 
 # Install essential fonts
-cask "font-hack"
+cask "font-fira-mono"
