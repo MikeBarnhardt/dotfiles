@@ -2,17 +2,19 @@
   "atom-package-deps":
     ignored: []
   autosave: {}
+  "city-lights-ui": {}
   core:
     closeDeletedFileTabs: true
     telemetryConsent: "limited"
     titleBar: "hidden"
+    useTreeSitterParsers: false
   editor:
-    fontFamily: "Hack"
-    fontSize: 16
-    preferredLineLength: 100
+    fontFamily: "Fira Code"
+    softTabs: false
   "exception-reporting":
     userId: "838c39ab-73af-23d0-f6d8-33375cfd400c"
-  "file-icons": {}
+  "file-icons":
+    strategies: {}
   linter: {}
   "linter-eslint": {}
   "linter-ui-default":
@@ -20,12 +22,24 @@
     panelHeight: 69
     tooltipFollows: "Mouse"
     useBusySignal: false
+  "linter-xo":
+    fixOnSave: true
   "nord-atom-ui":
     darkerFormFocusEffect: true
   "one-dark-ui":
     hideDockButtons: true
   "one-light-ui":
     hideDockButtons: true
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+    useEslint: true
+  "tone-syntax":
+    color:
+      bg: "#e7e7ee"
+      duo: "#3d78a7"
+      tri: "#f3a5bb"
+      uno: "#b8dfe4"
   "tree-view":
     hideVcsIgnoredFiles: true
   welcome:
@@ -45,6 +59,7 @@
 ".js.jsx.source":
   editor:
     preferredLineLength: 100
+    softWrap: false
 ".languagebabel.ttlextension":
   editor:
     preferredLineLength: 100

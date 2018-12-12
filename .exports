@@ -1,5 +1,0 @@
-# Use Vim
-export EDITOR="vim"
-
-# Install cask apps in home directory
-export HOMEBREW_CASK_OPTS="--appdir=~/Applications"

@@ -1,9 +1,0 @@
-# Automatically `ls` when changing directories.
-function cd() {
-  builtin cd "$@"; ls;
-}
-
-# Open man page as PDF using Preview
-function man() {
-  command man -t "${1}" | open -f -a /Applications/Preview.app/
-}

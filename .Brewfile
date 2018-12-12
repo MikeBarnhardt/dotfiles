@@ -4,6 +4,9 @@ brew "node-build"
 brew "nodenv"
 brew "watchman"
 brew "yarn", args: ["without-node"]
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
 
 # Add cask to brew
 tap "caskroom/cask"

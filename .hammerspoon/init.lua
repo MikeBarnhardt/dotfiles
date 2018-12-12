@@ -1,7 +1,26 @@
+-- local hyper = {"⌘", "⌥", "⌃", "⇧"}
+--
+-- hs.grid.MARGINX = 32
+-- hs.grid.MARGINY = 32
+-- hs.grid.GRIDWIDTH = 2
+-- hs.grid.GRIDHEIGHT = 2
+--
+-- -- a helper function that returns another function that resizes the current window
+-- -- to a certain grid size.
+-- local gridset = function(x, y, w, h)
+--   return function()
+--     hs.grid.set(hs.window.focusedWindow(), { x, y, w, h })
+--   end
+-- end
+--
+-- hs.hotkey.bind(hyper, 'left', gridset(0, 0, 1, 2))
+-- hs.hotkey.bind(hyper, 'right', gridset(1, 0, 1, 2))
+-- hs.hotkey.bind(hyper, 'space', hs.grid.maximizeWindow)
+
 hyper = hs.hotkey.modal.new()
 
 -- Use Karabiner-Elements to map caps_lock to f18.
-f18 = hs.hotkey.bind({}, 'f18', function () hyper:enter() end, function () hyper:exit() end)
+hs.hotkey.bind({}, 'f18', function () hyper:enter() end, function () hyper:exit() end)
 
 -- Reload Hammerspoon
 hyper:bind({}, 'r', hs.reload)
@@ -19,10 +38,10 @@ local function move(cb)
 end
 
 -- Set border gap sizes
-local border = 32
+local border = 64
 
 -- Set the padding gap sizes
-local padding = 16
+local padding = 32
 
 -- Center window
 hyper:bind({}, 'space', function()
@@ -32,7 +51,7 @@ hyper:bind({}, 'space', function()
     ((sf.w * (2 / 3)) - (border + padding)),
     (sf.h - (border + border))
   end)
-end);
+end)
 
 -- Fullscreen window
 hyper:bind({'shift'}, 'space', function()
@@ -42,7 +61,7 @@ hyper:bind({'shift'}, 'space', function()
     (sf.w - (border + border)),
     (sf.h - (border + border))
   end)
-end);
+end)
 
 -- Left 1/2
 hyper:bind({}, 'left', function()
