@@ -1,9 +1,19 @@
 # macOS Setup
 
-Running the following command will clone into a `--bare` git repository
-and checkout files into the `$HOME` directory. Any conflicting files
-are removed in the process.
+Install Homebrew:
 
+```shell
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-sh -c "`curl -Lks https://goo.gl/d6Ggbe`"
+
+Clone this repository:
+
+```shell
+git clone --bare https://github.com/MikeBarnhardt/dotfiles.git $HOME/.dotfiles
+```
+
+Install Homebrew applications:
+
+```shell
+brew bundle --global
 ```
