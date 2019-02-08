@@ -1,9 +1,9 @@
 # Install essential services
-brew "mongodb"
 brew "node-build"
 brew "nodenv"
-brew "watchman"
-brew "yarn", args: ["without-node"]
+brew "tmux"
+brew "vim"
+brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
@@ -16,16 +16,12 @@ cask_args appdir: "~/Applications"
 
 # Install essential apps
 cask "atom"
-cask "discord"
-cask "firefox"
-cask "google-backup-and-sync"
 cask "google-chrome"
-cask "hammerspoon"
+cask "keepingyouawake"
 cask "iterm2"
-cask "karabiner-elements"
 
 # Add fonts to cask
 tap "caskroom/fonts"
 
 # Install essential fonts
-cask "font-fira-mono"
+cask "font-hack-nerd-font"

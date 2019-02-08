@@ -17,3 +17,9 @@ Install Homebrew applications:
 ```shell
 brew bundle --global
 ```
+
+Change shell to zsh:
+
+```shell
+chsh -s /usr/local/bin/zsh
+```
