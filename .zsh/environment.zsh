@@ -1,12 +1,12 @@
 # Add `~/bin` to `$PATH`
 export PATH=$PATH:$HOME/bin
 
-# Add Yarn to `$PATH`
-export PATH=$PATH:$HOME/.yarn/bin
-
 # Use Vim as the preferred editor
-export EDITOR=vim
-export VISUAL=vim
+# export EDITOR=vim
+# export VISUAL=vim
+
+# Use 256 color terminals
+# export TERM=xterm-256color
 
 # Use English as preferred language
 export LANG=en_US.UTF-8
