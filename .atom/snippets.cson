@@ -20,6 +20,43 @@
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 
+# ANSI progress bars from 10 to 100%
+'*':
+  '0% progress bar':
+    'prefix': '0pb'
+    'body': '░░░░░░░░░░'
+  '10% progress bar':
+    'prefix': '10pb'
+    'body': '█░░░░░░░░░'
+  '20% progress bar':
+    'prefix': '20pb'
+    'body': '██░░░░░░░░'
+  '30% progress bar':
+    'prefix': '30pb'
+    'body': '███░░░░░░░'
+  '40% progress bar':
+    'prefix': '40pb'
+    'body': '████░░░░░░'
+  '50% progress bar':
+    'prefix': '50pb'
+    'body': '█████░░░░░'
+  '60% progress bar':
+    'prefix': '60pb'
+    'body': '██████░░░░'
+  '70% progress bar':
+    'prefix': '70pb'
+    'body': '███████░░░'
+  '80% progress bar':
+    'prefix': '80pb'
+    'body': '████████░░'
+  '90% progress bar':
+    'prefix': '90pb'
+    'body': '█████████░'
+  '100% progress bar':
+    'prefix': '100pb'
+    'body': '██████████'
+
+# React
 '.source.js':
   'import React':
     'prefix': 'ir'
