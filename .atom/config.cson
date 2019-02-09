@@ -1,0 +1,16 @@
+"*":
+  core:
+    telemetryConsent: "limited"
+  editor:
+    fontFamily: "Hack Nerd Font"
+    fontSize: 16
+    lineHeight: 1.75
+  "exception-reporting":
+    userId: "282b733e-9ede-4206-8281-f2e646bb9478"
+  "linter-xo":
+    fixOnSave: true
+  "one-dark-ui":
+    fontSize: 16
+    hideDockButtons: true
+  welcome:
+    showOnStartup: false
