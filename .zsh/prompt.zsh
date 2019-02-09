@@ -1,5 +1,6 @@
 # References:
-#		https://github.com/alexanderjeurissen/ombre.zsh/blob/master/prompt_ombre_setup
+#   Ombre.zsh
+#     - https://github.com/alexanderjeurissen/ombre.zsh/blob/master/prompt_ombre_setup
 
 autoload -Uz promptinit && promptinit
 
@@ -41,6 +42,33 @@ _generate_right_prompt() {
   RPROMPT="%F{default}${rprompt_content}%f"
 }
 
+_buffer_empty() {
+  if [ -z "$BUFFER" ]; then
+    if [ -n "${vcs_info_msg_1_}" ]; then
+       echo -ne "\033[1m git status\033[0m \n"
+       git -c color.status=always status --ignore-submodules=all | less -XFR
+       git -c color.status=always lg -3 | less -XFR
+    fi
+
+    # echo -ne "\n \033[1m--- FILES:\033[0m \n"
+    # CLICOLOR_FORCE=1 ls -C -G | less -XFR
+    # echo -n "\n"
+
+    zle redisplay
+  else
+    zle accept-line
+  fi
+}
+
+_keymap_select() {
+  [[ "$KEYMAP" == 'main' ]] && PROMPT="${PROMPT/·/›}"
+  [[ "$KEYMAP" == 'viins' ]] && PROMPT="${PROMPT/·/›}"
+  [[ "$KEYMAP" == 'vicmd' ]] && PROMPT="${PROMPT/›/·}"
+
+  zle reset-prompt
+  # zle -R
+}
+
 prompt_setup() {
   # prevent percentage showing up
   # if output doesn't end with a newline
@@ -69,9 +97,19 @@ prompt_setup() {
   zstyle ':vcs_info:git*' formats ' %%S  %b %f%%s' '%R'
   zstyle ':vcs_info:git*' actionformats ' %%S  %b %f%%s' '%b|%a' '%R'
 
+  # Allow case insensitive globbing
+  zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
   add-zsh-hook precmd vcs_info
   add-zsh-hook precmd _generate_left_prompt
   add-zsh-hook precmd _generate_right_prompt
+
+  zle -N zle-keymap-select _keymap_select
+  zle -N buffer-empty _buffer_empty
+
+  bindkey -M main  "^M" buffer-empty
+  bindkey -M vicmd "^M" buffer-empty
+  bindkey -M viins  "^M" buffer-empty
 }
 
 prompt_setup "$@"
