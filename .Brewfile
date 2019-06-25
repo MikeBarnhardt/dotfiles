@@ -1,7 +1,6 @@
 # Install essential services
 brew "node-build"
 brew "nodenv"
-brew "tmux"
 brew "vim"
 brew "zsh"
 brew "zsh-autosuggestions"
@@ -24,4 +23,4 @@ cask "iterm2"
 tap "caskroom/fonts"
 
 # Install essential fonts
-cask "font-hack-nerd-font"
+cask "font-iosevka"

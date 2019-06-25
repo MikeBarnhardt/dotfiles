@@ -7,13 +7,11 @@ alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 # Always use colored output with `ls`
 alias ls="ls -G"
 
-# List files in long format
-alias la="ls -FGahl"
+# List all files
+alias la="ls -1Fa"
 
 # Directory traversal
 alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
 
 # Allow sudo to be used in aliases
 alias sudo="sudo "
@@ -22,16 +20,16 @@ alias sudo="sudo "
 alias fucking='sudo $(history -p !!)'
 alias please='sudo $(history -p !!)'
 
-# Show/hide hidden files in Finder
-alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+# Move windows
+alias move-atom="osascript -e 'tell application \"System Events\" to tell process \"Atom\"' -e 'set position of window 1 to {918, 64}' -e 'set size of window 1 to {1578, 1312}' -e 'end tell'" 
 
-# Hide/show all desktop icons (useful when presenting)
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias move-cal="osascript -e 'tell application \"System Events\" to tell process \"Calendar\"' -e 'set position of window 1 to {918, 64}' -e 'set size of window 1 to {1578, 1312}' -e 'end tell'" 
 
-# tmux
-alias tmux="tmux "
-alias attach="tmux attach-session -t"
-alias detach="tmux detach"
-alias list="tmux list-sessions"
+alias move-iterm="osascript -e 'tell application \"System Events\" to tell process \"iTerm2\"' -e 'set position of window 1 to {1312, 64}' -e 'set size of window 1 to {1184, 1312}' -e 'end tell'" 
+
+alias move-notes="osascript -e 'tell application \"System Events\" to tell process \"Notes\"' -e 'set position of window 1 to {640, 360}' -e 'set size of window 1 to {1280, 720}' -e 'end tell'" 
+
+alias move-safari="osascript -e 'tell application \"System Events\" to tell process \"Safari\"' -e 'set position of window 1 to {918, 64}' -e 'set size of window 1 to {1578, 1312}' -e 'end tell'" 
+
+# Soon to be deprecated
+alias move-chrome="osascript -e 'tell application \"System Events\" to tell process \"Google Chrome\"' -e 'set position of window 2 to {918, 64}' -e 'set size of window 2 to {1578, 1312}' -e 'end tell'" 

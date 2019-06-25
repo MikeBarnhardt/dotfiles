@@ -9,7 +9,7 @@ _generate_left_prompt() {
 
   # Only print host name when connected through ssh
   if [[ "$SSH_CONNECTION" != '' ]]; then
-    prompt_content+="%F{blue} %m%f"
+    prompt_content+="%F{blue}%m%f"
   fi
 
   # Change color based on last exit code
@@ -32,7 +32,7 @@ _generate_right_prompt() {
   fi
 
   # Show last two segments of path
-  rprompt_content+=" %(3~|%2~|%~)"
+  rprompt_content+="%(3~|%2~|%~)"
 
   # Add VCS info if inside a repository
   if [[ -n $working_tree ]]; then
@@ -94,8 +94,8 @@ prompt_setup() {
   zstyle ':vcs_info:*' enable git
   zstyle ':vcs_info:*' use-simple true
   zstyle ':vcs_info:*' max-exports 3
-  zstyle ':vcs_info:git*' formats ' %%S  %b %f%%s' '%R'
-  zstyle ':vcs_info:git*' actionformats ' %%S  %b %f%%s' '%b|%a' '%R'
+  zstyle ':vcs_info:git*' formats ' %%S %b %f%%s' '%R'
+  zstyle ':vcs_info:git*' actionformats ' %%S %b %f%%s' '%b|%a' '%R'
 
   # Allow case insensitive globbing
   zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'

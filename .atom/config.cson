@@ -1,16 +1,46 @@
 "*":
   core:
+    closeDeletedFileTabs: true
+    customFileTypes:
+      "source.js.jsx": [
+        "js"
+      ]
     telemetryConsent: "limited"
+    themes: [
+      "one-dark-ui"
+      "lovelace-syntax"
+    ]
+    titleBar: "hidden"
   editor:
-    fontFamily: "Hack Nerd Font"
+    fontFamily: "Iosevka"
     fontSize: 16
-    lineHeight: 1.75
   "exception-reporting":
     userId: "282b733e-9ede-4206-8281-f2e646bb9478"
+  "git-diff": {}
+  "language-babel":
+    emmetCSSAutocomplete: true
+  "linter-ui-default":
+    panelHeight: 69
   "linter-xo":
     fixOnSave: true
+  "nebula-ui":
+    focusMode: false
+    hideSingleTab: false
   "one-dark-ui":
     fontSize: 16
     hideDockButtons: true
+  "one-light-ui":
+    fontSize: 16
+    hideDockButtons: true
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+      isDisabledIfNoConfigFile: true
+  "tree-view":
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
+  whitespace:
+    ensureSingleTrailingNewline: false
+    ignoreWhitespaceOnCurrentLine: false
+    removeTrailingWhitespace: false
