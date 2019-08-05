@@ -16,7 +16,6 @@ cask_args appdir: "~/Applications"
 # Install essential apps
 cask "atom"
 cask "google-chrome"
-cask "keepingyouawake"
 cask "iterm2"
 
 # Add fonts to cask
